@@ -63,3 +63,22 @@ npx serve dist
 ## Impressions
 
 Seems really easy to get started. TypeScript types are also generated, which is pretty cool.
+
+## Extra notes
+
+Compiling secp256k1 on Mac M1:
+
+```sh
+brew install llvm
+# M1
+export CC=/opt/homebrew/opt/llvm/bin/clang
+export AR=/opt/homebrew/opt/llvm/bin/llvm-ar
+npm run build
+npx serve dist
+```
+
+The goal is to run https://docs.rs/secp256k1/latest/secp256k1/ in the browser.
+
+Installing the dependencies was REALLY painful. Getting it to work in the browser was not straightforward.
+
+Or maybe I'm just lacking experience in Rust.
