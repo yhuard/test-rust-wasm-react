@@ -5,6 +5,9 @@
   "version": "1.0.0",
   "main": "src/index.jsx",
   "scripts": {
+    "build:wasm": "cargo build --target wasm32-unknown-unknown",
+    "build:bindgen": "wasm-bindgen target/wasm32-unknown-unknown/debug/test_rust_wasm_react.wasm --out-dir build",
+    "build": "npm run build:wasm && npm run build:bindgen && npx webpack",
     "dev": "webpack server"
   },
   "repository": {
@@ -22,6 +25,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@wasm-tool/wasm-pack-plugin": "^1.6.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.3",
     "html-webpack-plugin": "^5.5.0",
